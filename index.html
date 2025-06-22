@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate GitHub Profile Generator</title>
+    
+    <!-- CDN Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Particles.js Background -->
+    <div id="particles-js"></div>
+
+    <!-- Floating Dev Icons -->
+    <div class="floating-icons" id="floatingIcons"></div>
+    
+    <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <div class="header">
+            <h1 class="animate__animated animate__bounceInDown">
+                <i class="fas fa-rocket"></i> Ultimate GitHub Profile Generator
+            </h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                Create stunning GitHub profiles with animations, custom tech stacks, and professional templates
+            </p>
+            
+            <div class="meme-section">
+                <div class="dev-joke animate__animated animate__fadeInLeft animate__delay-2s">
+                    <i class="fas fa-coffee"></i> "It works on my machine!"
+                </div>
+                <div class="dev-joke animate__animated animate__fadeInRight animate__delay-2s">
+                    <i class="fas fa-bug"></i> "99 bugs in the code, 99 bugs..."
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('basic')" data-aos="fade-right">
+                <i class="fas fa-user"></i> Basic Info
+            </button>
+            <button class="nav-tab" onclick="switchTab('tech')" data-aos="fade-right" data-aos-delay="100">
+                <i class="fas fa-code"></i> Tech Stack
+            </button>
+            <button class="nav-tab" onclick="switchTab('custom-tech')" data-aos="fade-right" data-aos-delay="150">
+                <i class="fas fa-plus"></i> Custom Tech
+            </button>
+            <button class="nav-tab" onclick="switchTab('templates')" data-aos="fade-right" data-aos-delay="200">
+                <i class="fas fa-palette"></i> Templates
+            </button>
+            <button class="nav-tab" onclick="switchTab('custom')" data-aos="fade-right" data-aos-delay="300">
+                <i class="fas fa-tools"></i> Custom Badges
+            </button>
+            <button class="nav-tab" onclick="switchTab('memes')" data-aos="fade-right" data-aos-delay="400">
+                <i class="fas fa-laugh"></i> Dev Memes
+            </button>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <!-- Basic Info Tab -->
+                <div id="basic" class="tab-content active">
+                    <form id="profileForm">
+                        <div class="feature-highlight" data-aos="zoom-in">
+                            <i class="fas fa-magic"></i> Smart Profile Generation
+                            <p style="margin-top: 10px; font-size: 14px;">Just enter your GitHub username and watch the magic happen!</p>
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up">
+                            <label for="username"><i class="fab fa-github"></i> GitHub Username</label>
+                            <input type="text" id="username" name="username" placeholder="octocat" required>
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                            <label for="name"><i class="fas fa-user"></i> Display Name</label>
+                            <input type="text" id="name" name="name" placeholder="The Octocat">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                            <label for="title"><i class="fas fa-briefcase"></i> Title/Role</label>
+                            <input type="text" id="title" name="title" placeholder="Full Stack Developer | Code Wizard">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                            <label for="subtitle"><i class="fas fa-star"></i> Catchy Subtitle</label>
+                            <input type="text" id="subtitle" name="subtitle" placeholder="Turning coffee into code since 2020">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="400">
+                            <label for="description"><i class="fas fa-edit"></i> About Me</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Tell the world about your coding journey..."></textarea>
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="500">
+                            <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <input type="text" id="location" name="location" placeholder="Somewhere in the Cloud">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="600">
+                            <label for="website"><i class="fas fa-globe"></i> Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://yourawesomesite.com">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="700">
+                            <label for="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</label>
+                            <input type="text" id="linkedin" name="linkedin" placeholder="your-linkedin-username">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="800">
+                            <label for="twitter"><i class="fab fa-twitter"></i> Twitter/X</label>
+                            <input type="text" id="twitter" name="twitter" placeholder="@yourusername">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="900">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" name="email" placeholder="awesome@developer.com">
+                        </div>
+
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="1000">
+                            <label><i class="fas fa-chart-bar"></i> GitHub Features to Include</label>
+                            <div class="tech-grid">
+                                <div class="tech-item">
+                                    <input type="checkbox" id="stats" name="features" value="stats" checked>
+                                    <label for="stats">GitHub Stats</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="streak" name="features" value="streak" checked>
+                                    <label for="streak">Streak Stats</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="languages" name="features" value="languages" checked>
+                                    <label for="languages">Top Languages</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="trophies" name="features" value="trophies">
+                                    <label for="trophies">Trophies</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="contributions" name="features" value="contributions">
+                                    <label for="contributions">3D Contributions</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="activity" name="features" value="activity">
+                                    <label for="activity">Activity Graph</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="quotes" name="features" value="quotes">
+                                    <label for="quotes">Dev Quotes</label>
+                                </div>
+                                <div class="tech-item">
+                                    <input type="checkbox" id="jokes" name="features" value="jokes">
+                                    <label for="jokes">Programming Jokes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tech Stack Tab -->
+                <div id="tech" class="tab-content">
+                    <div class="search-tech">
+                        <div class="form-group">
+                            <label for="techSearch"><i class="fas fa-search"></i> Search Technologies</label>
+                            <input type="text" id="techSearch" placeholder="Search for technologies..." onkeyup="filterTech()">
+                        </div>
+                    </div>
+
+                    <div class="tech-categories">
+                        <div class="tech-category" data-aos="fade-up">
+                            <h4><i class="fab fa-html5"></i> Frontend Technologies</h4>
+                            <div class="tech-grid" id="frontend-tech"></div>
+                        </div>
+                        
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
+                            <h4><i class="fas fa-server"></i> Backend Technologies</h4>
+                            <div class="tech-grid" id="backend-tech"></div>
+                        </div>
+                        
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                            <h4><i class="fas fa-mobile-alt"></i> Mobile Development</h4>
+                            <div class="tech-grid" id="mobile-tech"></div>
+                        </div>
+                        
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
+                            <h4><i class="fas fa-database"></i> Databases</h4>
+                            <div class="tech-grid" id="database-tech"></div>
+                        </div>
+                        
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="400">
+                            <h4><i class="fas fa-cloud"></i> Cloud & DevOps</h4>
+                            <div class="tech-grid" id="cloud-tech"></div>
+                        </div>
+                        
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="500">
+                            <h4><i class="fas fa-tools"></i> Development Tools</h4>
+                            <div class="tech-grid" id="tools-tech"></div>
+                        </div>
+
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="600">
+                            <h4><i class="fas fa-brain"></i> AI & Machine Learning</h4>
+                            <div class="tech-grid" id="ai-tech"></div>
+                        </div>
+
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="700">
+                            <h4><i class="fas fa-gamepad"></i> Game Development</h4>
+                            <div class="tech-grid" id="game-tech"></div>
+                        </div>
+
+                        <div class="tech-category" data-aos="fade-up" data-aos-delay="800">
+                            <h4><i class="fas fa-shield-alt"></i> Security & Testing</h4>
+                            <div class="tech-grid" id="security-tech"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Tech Tab -->
+                <div id="custom-tech" class="tab-content">
+                    <div class="custom-tech-builder" data-aos="zoom-in">
+                        <h3><i class="fas fa-plus"></i> Add Custom Technology</h3>
+                        <div class="form-group">
+                            <label for="customTechName"><i class="fas fa-tag"></i> Technology Name</label>
+                            <input type="text" id="customTechName" placeholder="React Native, Docker, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="customTechColor"><i class="fas fa-palette"></i> Badge Color</label>
+                            <select id="customTechColor">
+                                <option value="blue">🔵 Blue</option>
+                                <option value="green">🟢 Green</option>
+                                <option value="red">🔴 Red</option>
+                                <option value="orange">🟠 Orange</option>
+                                <option value="purple">🟣 Purple</option>
+                                <option value="yellow">🟡 Yellow</option>
+                                <option value="black">⚫ Black</option>
+                                <option value="white">⚪ White</option>
+                                <option value="lightblue">🔵 Light Blue</option>
+                                <option value="lightgreen">🟢 Light Green</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="customTechLogo"><i class="fas fa-image"></i> Logo/Icon (optional)</label>
+                            <input type="text" id="customTechLogo" placeholder="Enter logo name (e.g., react, python, docker)">
+                            <small>Leave empty for text-only badge</small>
+                        </div>
+                        <div class="custom-tech-preview" id="customTechPreview">
+                            <img src="https://img.shields.io/badge/Technology-blue?style=for-the-badge" alt="Preview">
+                        </div>
+                        <button type="button" class="btn" onclick="addCustomTech()">
+                            <i class="fas fa-plus"></i> Add Custom Technology
+                        </button>
+                    </div>
+                    
+                    <div id="customTechList" data-aos="fade-up">
+                        <h3><i class="fas fa-list"></i> Your Custom Technologies</h3>
+                        <div id="customTechItems"></div>
+                    </div>
+                </div>
+
+                <!-- Templates Tab -->
+                <div id="templates" class="tab-content">
+                    <h3 style="margin-bottom: 25px; text-align: center; color: var(--text-primary);">
+                        <i class="fas fa-palette"></i> Choose Your Profile Style
+                    </h3>
+                    <div class="profile-templates">
+                        <div class="template-card selected" data-template="modern" data-aos="flip-left">
+                            <div class="template-preview">🎨</div>
+                            <h4>Modern Professional</h4>
+                            <p>Clean, sleek design with smooth animations</p>
+                        </div>
+                        <div class="template-card" data-template="creative" data-aos="flip-left" data-aos-delay="100">
+                            <div class="template-preview">✨</div>
+                            <h4>Creative Showcase</h4>
+                            <p>Colorful with GIFs and visual effects</p>
+                        </div>
+                        <div class="template-card" data-template="professional" data-aos="flip-left" data-aos-delay="200">
+                            <div class="template-preview">💼</div>
+                            <h4>Corporate Professional</h4>
+                            <p>Business-focused and formal layout</p>
+                        </div>
+                        <div class="template-card" data-template="developer" data-aos="flip-left" data-aos-delay="300">
+                            <div class="template-preview">👨‍💻</div>
+                            <h4>Code Master</h4>
+                            <p>Developer-centric with code aesthetics</p>
+                        </div>
+                        <div class="template-card" data-template="gamer" data-aos="flip-left" data-aos-delay="400">
+                            <div class="template-preview">🎮</div>
+                            <h4>Gaming Legend</h4>
+                            <p>Gaming-themed with achievements</p>
+                        </div>
+                        <div class="template-card" data-template="minimalist" data-aos="flip-left" data-aos-delay="500">
+                            <div class="template-preview">⚪</div>
+                            <h4>Zen Minimalist</h4>
+                            <p>Simple, clean, and elegant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Badges Tab -->
+                <div id="custom" class="tab-content">
+                    <div class="custom-badge-builder" data-aos="zoom-in">
+                        <h3><i class="fas fa-tools"></i> Custom Badge Builder</h3>
+                        <div class="form-group">
+                            <label for="badgeText"><i class="fas fa-edit"></i> Badge Text</label>
+                            <input type="text" id="badgeText" placeholder="My Awesome Badge">
+                        </div>
+                        <div class="form-group">
+                            <label for="badgeColor"><i class="fas fa-palette"></i> Badge Color</label>
+                            <select id="badgeColor">
+                                <option value="brightgreen">🟢 Bright Green</option>
+                                <option value="green">🟢 Green</option>
+                                <option value="yellowgreen">🟡 Yellow Green</option>
+                                <option value="yellow">🟡 Yellow</option>
+                                <option value="orange">🟠 Orange</option>
+                                <option value="red">🔴 Red</option>
+                                <option value="blue">🔵 Blue</option>
+                                <option value="lightgrey">⚪ Light Grey</option>
+                                <option value="blueviolet">🟣 Blue Violet</option>
+                                <option value="9cf">🔵 Light Blue</option>
+                                <option value="success">✅ Success</option>
+                                <option value="critical">❌ Critical</option>
+                                <option value="important">⚠️ Important</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="badgeStyle"><i class="fas fa-shapes"></i> Badge Style</label>
+                            <select id="badgeStyle">
+                                <option value="flat">Flat</option>
+                                <option value="flat-square">Flat Square</option>
+                                <option value="for-the-badge">For The Badge</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="social">Social</option>
+                            </select>
+                        </div>
+                        <div class="badge-preview" id="badgePreview">
+                            <img src="https://img.shields.io/badge/My%20Awesome%20Badge-brightgreen?style=flat" alt="Preview">
+                        </div>
+                        <button type="button" class="btn" onclick="addCustomBadge()">
+                            <i class="fas fa-plus"></i> Add Custom Badge
+                        </button>
+                    </div>
+                    
+                    <div id="customBadges" data-aos="fade-up"></div>
+                </div>
+
+                <!-- Dev Memes Tab -->
+                <div id="memes" class="tab-content">
+                    <h3 style="margin-bottom: 25px; text-align: center; color: var(--text-primary);">
+                        <i class="fas fa-laugh"></i> Add Some Developer Humor
+                    </h3>
+                    
+                    <div class="meme-container">
+                        <div class="meme-card" data-aos="fade-up">
+                            <h4>🐛 Debug Mode</h4>
+                            <p>"It's not a bug, it's a feature!"</p>
+                            <input type="checkbox" name="memes" value="debug">
+                        </div>
+                        <div class="meme-card" data-aos="fade-up" data-aos-delay="100">
+                            <h4>☕ Coffee Powered</h4>
+                            <p>"Code + Coffee = Magic"</p>
+                            <input type="checkbox" name="memes" value="coffee">
+                        </div>
+                        <div class="meme-card" data-aos="fade-up" data-aos-delay="200">
+                            <h4>🔄 Stack Overflow</h4>
+                            <p>"Copy, Paste, StackOverflow, Repeat"</p>
+                            <input type="checkbox" name="memes" value="stackoverflow">
+                        </div>
+                        <div class="meme-card" data-aos="fade-up" data-aos-delay="300">
+                            <h4>💻 Works on My Machine</h4>
+                            <p>"But it works perfectly on my machine!"</p>
+                            <input type="checkbox" name="memes" value="works">
+                        </div>
+                    </div>
+
+                    <div class="code-snippet" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="typing-demo">
+                            while(coffee.available()) { code(); }
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" form="profileForm" class="btn glow" id="generateBtn" data-aos="bounce">
+                    <span id="btnText"><i class="fas fa-rocket"></i> Generate Epic Profile</span>
+                    <span id="btnSpinner" style="display: none;"><span class="loading-spinner"></span> Creating Magic...</span>
+                </button>
+
+                <div id="userStats" style="display: none;" data-aos="fade-up">
+                    <h3 style="margin: 30px 0 20px 0; text-align: center; color: var(--text-primary);">
+                        <i class="fas fa-chart-bar"></i> Your GitHub Analytics
+                    </h3>
+                    <div class="stats-grid" id="statsContainer"></div>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <h3 style="margin-bottom: 25px; display: flex; align-items: center; gap: 10px; color: var(--text-primary);" data-aos="fade-down">
+                    <i class="fas fa-eye"></i> Live Preview
+                    <span style="font-size: 14px; color: var(--text-secondary); font-weight: normal;">
+                        Real-time markdown generation
+                    </span>
+                </h3>
+
+                <!-- Preview Mode Toggle -->
+                <div class="preview-controls" data-aos="fade-down" data-aos-delay="100">
+                    <button class="preview-toggle active" data-mode="markdown" onclick="switchPreviewMode('markdown')">
+                        <i class="fas fa-code"></i> Markdown
+                    </button>
+                    <button class="preview-toggle" data-mode="rendered" onclick="switchPreviewMode('rendered')">
+                        <i class="fas fa-eye"></i> Rendered
+                    </button>
+                </div>
+                
+                <div id="markdownPreview" class="preview" data-aos="fade-left">
+🚀 Welcome to the Ultimate GitHub Profile Generator!
+
+💡 Enter your details and watch your profile come to life...
+
+✨ Features:
+• Smart content generation
+• Professional templates
+• Custom animations
+• Dev memes and jokes
+• Real-time preview
+• Dark/Light theme toggle
+• Custom tech stack builder
+
+🎯 Ready to create something amazing?</div>
+
+                <div id="renderedPreview" class="rendered-preview" style="display: none;" data-aos="fade-left">
+                    <iframe id="previewFrame" frameborder="0" style="width: 100%; height: 600px; border-radius: 12px;"></iframe>
+                </div>
+                
+                <button class="btn copy-btn" id="copyBtn" onclick="copyToClipboard()" style="display: none;" data-aos="fade-up">
+                    <i class="fas fa-copy"></i> Copy Awesome Markdown
+                </button>
+                
+                <div id="message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
